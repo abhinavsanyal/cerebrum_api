@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/cerebrum/static/css/main.189ab08d.css",
+    "main.js": "/cerebrum/static/js/main.5494759e.js",
+    "main.js.map": "/cerebrum/static/js/main.5494759e.js.map",
+    "static/js/1.d7e33c37.chunk.js": "/cerebrum/static/js/1.d7e33c37.chunk.js",
+    "static/js/1.d7e33c37.chunk.js.map": "/cerebrum/static/js/1.d7e33c37.chunk.js.map",
+    "index.html": "/cerebrum/index.html",
+    "static/css/main.189ab08d.css.map": "/cerebrum/static/css/main.189ab08d.css.map",
+    "static/js/main.5494759e.js.LICENSE.txt": "/cerebrum/static/js/main.5494759e.js.LICENSE.txt",
+    "static/media/pattern-dots.svg": "/cerebrum/static/media/pattern-dots.0a312038.svg"
+  },
+  "entrypoints": [
+    "static/css/main.189ab08d.css",
+    "static/js/main.5494759e.js"
+  ]
+}

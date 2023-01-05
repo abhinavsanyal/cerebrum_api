@@ -2,6 +2,7 @@
   "name": "cerebrum",
   "version": "1.0.0",
   "private": true,
+  "homepage": "http://abhinavsanyal.github.io/cerebrum",
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.3",
@@ -48,12 +49,15 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-app-rewired start && npm run dev",
     "react": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "api": "set NODE_ENV=dev&&nodemon index.js",
     "api_mac": "export NODE_ENV=dev&&nodemon index.js",
+    "dev": "node index.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -77,6 +81,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.14.5",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^4.0.0",
     "nodemon": "^2.0.12",
     "react-app-rewired": "^2.1.8"
   }
