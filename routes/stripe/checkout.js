@@ -17,7 +17,7 @@ const checkout = async (eventType,data) => {
 
 const complete = async (eventType,data) => {
 
-	if (!eventType.includes("checkout.session.completed")) {
+	if (!eventType.includes("checkout.session.createCompletion")) {
 		return // not a subscription event
 	}
 	const { object } = data

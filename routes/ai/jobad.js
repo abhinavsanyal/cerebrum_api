@@ -36,15 +36,15 @@ app.post('/business/jobad', async (req, res, next) => {
   
 	
   
-	const gptResponse = await openai.complete({
-		engine: 'davinci',
+	const gptResponse = await openai.createCompletion({
+		model: 'text-davinci-003',
 		prompt,
-		maxTokens: 250,
+		max_tokens: 250,
 		temperature: 0.5,
-		topP: 1,
-		frequencyPenalty: 0.2,
-		presencePenalty: 0,
-		bestOf: 1,
+		top_p: 1,
+		frequency_penalty: 0.2,
+		presence_penalty: 0,
+		best_of: 1,
 		n: 1,
 		user: req.user._id,
 		stream: false,

@@ -13,15 +13,15 @@ app.post('/example', async (req, res, next) => {
 	let inputRaw = `${content}` // here is where people enter stuff
 	prompt += inputRaw
 
-	const gptResponse = await openai.complete({
-		engine: 'curie',
+	const gptResponse = await openai.createCompletion({
+		model: "text-curie-003",
 		prompt,
-		maxTokens: 150,
+		max_tokens: 150,
 		temperature: 0.2,
-		topP: 1,
-		frequencyPenalty: 1,
-		presencePenalty: 0,
-		bestOf: 1,
+		top_p: 1,
+		frequency_penalty: 1,
+		presence_penalty: 0,
+		best_of: 1,
 		n: 1,
 		user: req.user._id,
 		stream: false,

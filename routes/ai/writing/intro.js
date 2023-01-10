@@ -58,37 +58,38 @@ app.post('/writing/intro', async (req, res, next) => {
 		prompt += inputRaw
 
 
-		const gptResponse = await openai.complete({
-			engine: 'davinci',
+		const gptResponse = await openai.createCompletion({
+			model: "text-davinci-003",
 			prompt,
-			maxTokens: 100,
+			max_tokens: 100,
 			temperature: 0.8,
-			frequencyPenalty: 0.2,
-			presencePenalty: 0,
-			bestOf: 1,
-			topP: 1,
+			frequency_penalty: 0.2,
+			presence_penalty: 0,
+			best_of: 1,
+			top_p: 1,
 			n: 1,
 			user: req.user._id,
 			stream: false,
 			stop: [`"""`, "Title:","Audience:", "Introduction:" ],
 		});
+		console.log("######## intro :::",gptResponse.data)
 
 		let output = `${gptResponse.data.choices[0].text}`
 
-		// remove the first character from output
+		// // remove the first character from output
 		output = output.substring(1, output.length)
 
-		// If the output string ends with one or more hashtags, remove all of them
+		// // If the output string ends with one or more hashtags, remove all of them
 		if (output.endsWith('"')) {
 			output = output.substring(0, output.length - 1)
 		}
 
-		// If the output string ends with one or more hashtags, remove all of them
+		// // If the output string ends with one or more hashtags, remove all of them
 		if (output.endsWith('"')) {
 			output = output.substring(0, output.length - 1)
 		}
 
-		// remove a single new line at the end of output if there is one
+		// // remove a single new line at the end of output if there is one
 		if (output.endsWith('\n')) {
 			output = output.substring(0, output.length - 1)
 		}
@@ -100,7 +101,8 @@ app.post('/writing/intro', async (req, res, next) => {
 		next()
 
 	} catch (err) {
-		console.log(err)
+		console.log("###########Errored out")
+		console.log(err.response.data);
 	}
   })
 

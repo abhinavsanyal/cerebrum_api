@@ -22,6 +22,9 @@ const sendResponse = async (req, res, next) => {
 	if(req.locals.code){
 		response.code =  req.locals.code
 	}
+	if(req.locals.outputType){
+		response.outputType =  req.locals.outputType
+	}
 
 	res.json(response)
 	

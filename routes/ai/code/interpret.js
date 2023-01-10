@@ -21,15 +21,15 @@ app.post('/code/interpret', async (req, res, next) => {
 
 			prompt += inputRaw
 
-			const gptResponse = await openai.complete({
-				engine: 'davinci-codex',
+			const gptResponse = await openai.createCompletion({
+				model: "code-davinci-002",
 				prompt,
-				maxTokens: 100,
+				max_tokens: 100,
 				temperature: 0.5,
-				topP: 1,
-				frequencyPenalty: 0,
-				presencePenalty: 0,
-				bestOf: 1,
+				top_p: 1,
+				frequency_penalty: 0,
+				presence_penalty: 0,
+				best_of: 1,
 				user: req.user._id,
 				stream: false,
 				stop: ['# Code','# Explanation', "<|endoftext|>" ],
@@ -64,7 +64,7 @@ app.post('/code/interpret', async (req, res, next) => {
 			next();
 
 		} catch(err){
-			console.log(err)
+			console.log(err.response.data)
 		}
 	
   })

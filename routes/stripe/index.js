@@ -46,7 +46,7 @@ app.post("/webhook", bodyParser.raw({type: 'application/json'}),  async (req, re
 		subscription(eventType,data)
 		invoice(eventType,data)
 
-		// if (eventType === "checkout.session.completed") {
+		// if (eventType === "checkout.session.createCompletion") {
 		// 	console.log(`🔔  Payment received!`);
 		// }
 

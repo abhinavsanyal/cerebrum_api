@@ -20,8 +20,9 @@ app.use('/', require('./writing/intro'));
 app.use('/', require('./jobad'));
 app.use('/', require('./helloworld'));
 app.use('/', require('./example'));
+app.use('/', require('./logomaker'));
 
-app.use('/', contentFilterCheck); 
+// app.use('/', contentFilterCheck);
 app.use('/', creditPayment); 
 app.use('/', saveToHistory); 
 
